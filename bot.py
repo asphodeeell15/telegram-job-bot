@@ -4,7 +4,8 @@ from telegram.ext import (
     ConversationHandler, ContextTypes, filters
 )
 
-TOKEN = "7956571535:AAHDCyd6AzquBsqjDofo8vUnqDeSRtc0psI"
+import os
+TOKEN = os.getenv("7956571535:AAHDCyd6AzquBsqjDofo8vUnqDeSRtc0psI")
 CHAT_ID = -1003730582886  
 
 VACANCY, NAME, PHONE = range(3)
