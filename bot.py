@@ -9,6 +9,7 @@ import os
 TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = int(os.getenv("CHAT_ID", "-1003730582886"))
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
+WEBHOOK_PATH = os.getenv("WEBHOOK_PATH", "/telegram-webhook")
 PORT = int(os.getenv("PORT", "8080"))
 
 if not TOKEN:
@@ -137,11 +138,17 @@ app.add_handler(conv_handler)
 
 print("Bot started...")
 if WEBHOOK_URL:
+    webhook_path = WEBHOOK_PATH if WEBHOOK_PATH.startswith("/") else f"/{WEBHOOK_PATH}"
+    full_webhook_url = f"{WEBHOOK_URL.rstrip('/')}{webhook_path}"
+    print(f"Running in webhook mode on port {PORT}, path {webhook_path}")
     app.run_webhook(
         listen="0.0.0.0",
         port=PORT,
-        webhook_url=WEBHOOK_URL,
+        url_path=webhook_path.lstrip("/"),
+        webhook_url=full_webhook_url,
+        drop_pending_updates=True,
         close_loop=False,
     )
 else:
+    print("Running in polling mode")
     app.run_polling(close_loop=False)
