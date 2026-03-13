@@ -31,7 +31,7 @@ TEXTS = {
         "phone": "📞 Телефон",
         "thanks": "✅ Спасибо! Наш менеджер свяжется с вами.",
         "timed_out": "⌛ Заявка не завершена. Мы сохранили то, что вы уже ввели.",
-        "vacancies": [["Бетонщик"], ["Бригадир"], ["Сборщик"]],
+        "vacancies": [["Бетонщик"], ["Бригадир"], ["Сборщик"], ["Сварщик 136 метод"]],
     },
     "en": {
         "welcome": "👋 Welcome!\n\nYou can apply for a vacancy through this bot.",
@@ -45,7 +45,7 @@ TEXTS = {
         "phone": "📞 Phone",
         "thanks": "✅ Thank you! Our manager will contact you.",
         "timed_out": "⌛ Application not completed. We saved what you entered.",
-        "vacancies": [["Concrete worker"], ["Foreman"], ["Assembler"]],
+        "vacancies": [["Concrete worker"], ["Foreman"], ["Assembler"], ["Welder 136 method"]],
     },
 }
 
