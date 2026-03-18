@@ -162,9 +162,6 @@ async def send_application_to_manager(context: ContextTypes.DEFAULT_TYPE, incomp
 
 async def handle_inactivity_timeout(context: ContextTypes.DEFAULT_TYPE):
     await send_application_to_manager(context, incomplete=True)
-    t = TEXTS.get(context.user_data.get("lang", "ru"), TEXTS["ru"])
-    if context.job and context.job.chat_id:
-        await context.bot.send_message(chat_id=context.job.chat_id, text=t["timed_out"])
     context.user_data.clear()
 
 
